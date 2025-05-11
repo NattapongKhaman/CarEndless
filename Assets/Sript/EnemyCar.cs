@@ -5,10 +5,12 @@ public class EnemyCar : MonoBehaviour
 {
     private Road road;
     private PlayerCon playerCon;
+    private GameManager gm;
     
     void Start()
     {
         // รับค่า
+        gm = GameManager.instance;
         road = GameObject.Find("RoadMain").GetComponent<Road>();
         playerCon = GameObject.Find("Player").GetComponent<PlayerCon>();
     }
@@ -28,8 +30,18 @@ public class EnemyCar : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerCon.hp -= 1;
-            Destroy(this.gameObject);
+            if(CompareTag("Enemy")){
+                playerCon.hp -= 1;
+                Destroy(this.gameObject);
+            }
+
+            if (CompareTag("Item"))
+            {
+                gm.GetItemscore +=1;
+                road.speed *= 1.2f;
+                Destroy(this.gameObject);
+            }
+            
         }
     }
 }

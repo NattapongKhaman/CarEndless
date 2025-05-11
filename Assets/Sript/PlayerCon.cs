@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerCon : MonoBehaviour
 {
@@ -39,5 +40,6 @@ public class PlayerCon : MonoBehaviour
             transform.position = new Vector3(maxMove.transform.position.x, 
                 transform.position.y, transform.position.z);
         }
+        
     }
 }

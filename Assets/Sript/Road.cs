@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
-    private Vector3 startPos;
+    
     public float speed = 0.1f;
+    private Vector3 startPos;
     private PlayerCon playerCon;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,14 +19,6 @@ public class Road : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            speed *=2;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speed /=2;
-        }
         // หยุดเมื่อตาย
         if (playerCon.hp == 0)
         {
@@ -38,4 +32,5 @@ public class Road : MonoBehaviour
         //ขยับถนน
         transform.Translate(Vector3.forward * Time.deltaTime * -speed);
     }
+    
 }
