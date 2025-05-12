@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
         //หา script Playercon 
         playerCon = GameObject.Find("Player").GetComponent<PlayerCon>();
         // ทำซ้ำ
-        InvokeRepeating("spawn",1,1.5f);
+        InvokeRepeating("spawn",1,2f);
     }
     
     void Update()

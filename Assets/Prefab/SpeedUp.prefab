@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4035877738438599703}
   - component: {fileID: 5265562444980464274}
   - component: {fileID: 7606899205413931327}
-  - component: {fileID: 9004115938548191237}
+  - component: {fileID: 1256255034732574376}
   m_Layer: 0
   m_Name: SpeedUp
   m_TagString: Item
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9004115938548191237
+--- !u!114 &1256255034732574376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,9 +1,11 @@
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int highScore;
+    public int score;
     public int GetItemscore;
 
     void Awake()
@@ -17,6 +19,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-       
     }
+    
 }

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class UI : MonoBehaviour
 
     void SaveScore()
     {
+        gm.score = score;
         gm.highScore = highScore;
     }
 
@@ -62,5 +64,9 @@ public class UI : MonoBehaviour
                 highScore =score;
             }
         }
+    }
+    public void play()
+    {
+        SceneManager.LoadScene(1);
     }
 }

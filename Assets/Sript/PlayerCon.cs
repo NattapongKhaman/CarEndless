@@ -1,20 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class PlayerCon : MonoBehaviour
 {
-    private float horizontalInput = 0;
+
     public GameObject maxMove;
     public float speed = 1;
     public int score = 0;
     public int hp = 3; 
-        
+    public AudioClip [] Sounds;
+    
+    private AudioSource audioSource;
+    private float horizontalInput = 0;
     private InputAction movementAction;
     void Start()
     {
         //หาปุ่ม
         movementAction = InputSystem.actions.FindAction("Move");
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +43,19 @@ public class PlayerCon : MonoBehaviour
             transform.position = new Vector3(maxMove.transform.position.x, 
                 transform.position.y, transform.position.z);
         }
-        
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Item"))
+        {
+            audioSource.PlayOneShot(Sounds[0]);
+        }
+
+        if (other.collider.CompareTag("Enemy"))
+        {
+            audioSource.PlayOneShot(Sounds[1]);
+        }
+    }
+    
 }
