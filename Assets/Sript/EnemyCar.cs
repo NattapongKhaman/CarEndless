@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,15 +6,15 @@ public class EnemyCar : MonoBehaviour
 {
     private Road road;
     private PlayerCon playerCon;
-    private GameManager gm;
     private AudioSource audioSource;
+    private UI ui;
     
     void Start()
     {
         // รับค่า
-        gm = GameManager.instance;
         road = GameObject.Find("RoadMain").GetComponent<Road>();
         playerCon = GameObject.Find("Player").GetComponent<PlayerCon>();
+        ui =GameObject.Find("Canvas").GetComponent<UI>();
 
         
     }
@@ -34,7 +35,7 @@ public class EnemyCar : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             if(CompareTag("Enemy")){
-                playerCon.hp -= 1;
+                playerCon.hp --;
                 if (playerCon.hp > 0)
                 {
                       Destroy(this.gameObject);
@@ -46,8 +47,7 @@ public class EnemyCar : MonoBehaviour
             }
             else if (CompareTag("Item"))
             {
-               
-                gm.GetItemscore +=1;
+                ui.itemScore+=1;
                 road.speed *= 1.2f;
                 Destroy(this.gameObject);
             }

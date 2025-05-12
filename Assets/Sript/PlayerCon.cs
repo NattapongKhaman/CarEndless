@@ -6,7 +6,6 @@ public class PlayerCon : MonoBehaviour
 
     public GameObject maxMove;
     public float speed = 1;
-    public int score = 0;
     public int hp = 3; 
     public AudioClip [] Sounds;
     

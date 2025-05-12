@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class UI : MonoBehaviour
     private GameManager gm;
     private int score;
     private int highScore;
+    public int itemScore;
     private PlayerCon playerCon;
     void Start()
     {
@@ -37,7 +37,7 @@ public class UI : MonoBehaviour
         // UI
         scoretext.text = "Score: " + score.ToString();
         highScoretext.text = "High Score: " + highScore.ToString();
-        itemScoretext.text = ": X" + gm.GetItemscore.ToString(); 
+        itemScoretext.text = ": X" + itemScore.ToString(); 
         hpemScoretext.text = ": X" + playerCon.hp.ToString();
         
         
@@ -64,9 +64,5 @@ public class UI : MonoBehaviour
                 highScore =score;
             }
         }
-    }
-    public void play()
-    {
-        SceneManager.LoadScene(1);
     }
 }
