@@ -25,8 +25,9 @@ public class UI : MonoBehaviour
     void Update()
     {   
         //แต้ม
-        if (playerCon.hp != 0)
+        if (playerCon.hp <= 0)
         {
+            playerCon.hp = 0;
              time += Time.deltaTime;
              TimeScore();
         }
